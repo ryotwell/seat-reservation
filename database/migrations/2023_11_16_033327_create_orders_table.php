@@ -4,6 +4,7 @@ use App\Models\Chair;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -21,8 +22,8 @@ return new class extends Migration
             $table->foreignIdFor(Chair::class)->constrained()->cascadeOnDelete();
             $table->enum('shift', ['a', 'b', 'c', 'd']);
             $table->enum('status', ['waiting', 'approved','canceled']);
-            $table->timestamp('from')->default(null);
-            $table->timestamp('to')->default(null);
+            $table->timestamp('from')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('to')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamps();
         });
     }
