@@ -1,37 +1,48 @@
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="index.html">Stisla</a>
+            <a href={{ route('dashboard') }}>{{ config('app.name') }}</a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
-            <a href="index.html">St</a>
+            <a href={{ route('dashboard') }}>{{ __('TG') }}</a>
         </div>
         <ul class="sidebar-menu">
             <li class="{{ Request::is('dashboard') ? 'active' : '' }}">
                 <a class="nav-link"
-                    href="{{ url('dashboard') }}"><i class="fas fa-fire"></i> <span>Dashboard</span>
+                    href="{{ route('dashboard') }}"><i class="fas fa-fire"></i> <span>Dashboard</span>
                 </a>
             </li>
-            <li class="nav-item dropdown {{ $type_menu === 'chair' ? 'active' : '' }}">
+            <li class="{{ Request::is('order') ? 'active' : '' }}">
+                <a class="nav-link"
+                    href="{{ route('order.index') }}"><i class="fas fa-columns"></i> <span>Kursi Yang Di Booking</span>
+                </a>
+            </li>
+            <li class="{{ Request::is('order/new') || Request::is('order/new/select-chair') ? 'active' : '' }}">
+                <a class="nav-link"
+                    href="{{ route('order.create') }}"><i class="fas fa-columns"></i> <span>Booking Kursi</span>
+                </a>
+            </li>
+            {{-- <li class="nav-item dropdown {{ $type_menu === 'chair' ? 'active' : '' }}">
                 <a href="#"
                     class="nav-link has-dropdown"
                     data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Kursi</span></a>
                 <ul class="dropdown-menu">
-                    <li class="{{ Request::is('sasas') ? 'active' : '' }}">
+                    <li class="{{ Request::is('chair') ? 'active' : '' }}">
                         <a class="nav-link"
-                            href="{{ route('chair.create') }}">Kursi yang di pesan</a>
+                            href="{{ route('chair.index') }}">Kursi yang di pesan</a>
                     </li>
                     <li class="{{ Request::is('chair/new') ? 'active' : '' }}">
                         <a class="nav-link"
                             href="{{ route('chair.create') }}">Pesan Kursi</a>
                     </li>
                 </ul>
-            </li>
-            <li class="{{ Request::is('blank-page') ? 'active' : '' }}">
+            </li> --}}
+
+            {{-- <li class="{{ Request::is('blank-page') ? 'active' : '' }}">
                 <a class="nav-link"
                     href="{{ url('blank-page') }}"><i class="far fa-square"></i> <span>Blank Page</span></a>
-            </li>
-            <li class="nav-item dropdown {{ $type_menu === 'bootstrap' ? 'active' : '' }}">
+            </li> --}}
+            {{-- <li class="nav-item dropdown {{ $type_menu === 'bootstrap' ? 'active' : '' }}">
                 <a href="#"
                     class="nav-link has-dropdown"><i class="fas fa-th"></i> <span>Bootstrap</span></a>
                 <ul class="dropdown-menu">
@@ -195,7 +206,7 @@
                     </li>
                 </ul>
             </li>
-            {{-- <li class="nav-item dropdown">
+            <li class="nav-item dropdown">
                 <a href="#"
                     class="nav-link has-dropdown"><i class="fas fa-map-marker-alt"></i> <span>Google
                         Maps</span></a>
@@ -209,7 +220,7 @@
                     <li><a href="gmaps-route.html">Route</a></li>
                     <li><a href="gmaps-simple.html">Simple</a></li>
                 </ul>
-            </li> --}}
+            </li>
             <li class="nav-item dropdown {{ $type_menu === 'modules' ? 'active' : '' }}">
                 <a href="#"
                     class="nav-link has-dropdown"><i class="fas fa-plug"></i> <span>Modules</span></a>
@@ -366,14 +377,14 @@
                     href="{{ url('credits') }}"><i class="fas fa-pencil-ruler">
                     </i> <span>Credits</span>
                 </a>
-            </li>
+            </li> --}}
         </ul>
 
-        <div class="hide-sidebar-mini mt-4 mb-4 p-3">
+        {{-- <div class="hide-sidebar-mini mt-4 mb-4 p-3">
             <a href="https://getstisla.com/docs"
                 class="btn btn-primary btn-lg btn-block btn-icon-split">
                 <i class="fas fa-rocket"></i> Documentation
             </a>
-        </div>
+        </div> --}}
     </aside>
 </div>
