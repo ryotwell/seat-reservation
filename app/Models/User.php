@@ -54,6 +54,9 @@ class User extends Authenticatable
 
     public function hasNewOrder()
     {
-        return !!! $this->orders()->whereDate('created_at', now()->today())->first();
+        return !!! $this->orders()
+            ->whereDate('created_at', now()->today())
+            ->where('status', 'approved')
+            ->first();
     }
 }
