@@ -21,8 +21,8 @@ return new class extends Migration
             $table->foreignIdFor(Chair::class)->constrained()->cascadeOnDelete();
             $table->enum('shift', ['a', 'b', 'c', 'd']);
             $table->enum('status', ['waiting', 'approved','canceled']);
-            $table->timestamp('from');
-            $table->timestamp('to');
+            $table->timestamp('from')->default(null);
+            $table->timestamp('to')->default(null);
             $table->timestamps();
         });
     }
