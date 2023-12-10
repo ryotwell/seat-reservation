@@ -16,7 +16,7 @@
 
         <div class="card-body">
             <form method="POST"
-                action="{{ route('login') }}">
+                action="{{ route('register') }}">
 
                 @csrf
 
@@ -27,6 +27,17 @@
                         </div>
                     @endforeach
                 @endif
+
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input id="name"
+                        type="text"
+                        class="form-control"
+                        name="name"
+                        tabindex="1"
+                        value="{{ old('name') }}"
+                    />
+                </div>
 
                 <div class="form-group">
                     <label for="email">Email</label>
@@ -48,6 +59,18 @@
                         type="password"
                         class="form-control"
                         name="password"
+                    />
+                </div>
+
+                <div class="form-group">
+                    <div class="d-block">
+                        <label for="password"
+                            class="control-label">Cofirm Password</label>
+                    </div>
+                    <input id="password"
+                        type="password"
+                        class="form-control"
+                        name="password_confirmation"
                     />
                 </div>
 
@@ -75,6 +98,6 @@
         </div>
     </div>
     <div class="text-muted mt-5 text-center">
-        Don't have an account? <a href="{{ route('register') }}">Register</a>
+        Already have account? <a href="{{ route('login') }}">Login</a>
     </div>
 @endsection

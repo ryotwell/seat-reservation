@@ -61,7 +61,7 @@ class OrderController extends Controller
                     'status' => 'approved',
                 ]);
 
-                return redirect( route('order.index') );
+                return redirect()->route('order.index');
             }
 
             return 'Kursi sudah booking pengguna lain!'; 
