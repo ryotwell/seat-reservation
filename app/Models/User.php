@@ -59,4 +59,9 @@ class User extends Authenticatable
             ->where('status', 'approved')
             ->first();
     }
+
+    public function isAdmin()
+    {
+        return (boolean) ($this->role === 'admin');
+    }
 }

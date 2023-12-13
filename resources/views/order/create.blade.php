@@ -19,6 +19,9 @@
 
                 <form action="{{ route('order.create.selectchair') }}" method="GET" class="card">
                     <div class="card-body">
+
+                        <x-alert />
+
                         <div class="form-group">
                             <div class="form-group">
                                 <label>Shift</label>

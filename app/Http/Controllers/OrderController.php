@@ -124,7 +124,7 @@ class OrderController extends Controller
         $order->save();
 
         if( now() > $order->from ) {
-            return 'Sudah lewat jam, tidak bisa di batalkan!';
+            return back()->with(['message' => 'Sudah lewat jam, tidak bisa di batalkan!']);
         }
 
         return redirect()->route('order.index');
@@ -139,7 +139,7 @@ class OrderController extends Controller
         $shiftAt = AppChair::getShiftAt($request->shift);
 
         if(now() > $shiftAt['from']) {
-            return 'Sudah lewat jam, pesan lebih awal besok!';
+            return back()->with(['message' => 'Sudah lewat jam, pesan lebih awal besok!']);
         }
 
         $orders = collect( Order::whereDate('created_at', now()->today())

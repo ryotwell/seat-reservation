@@ -6,6 +6,7 @@ use App\Models\Chair;
 use App\Models\Order;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
@@ -17,8 +18,8 @@ class DashboardController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $totalAdmin = User::where('role', 'admin')->count();
-        $totalUser = User::where('role', 'user')->count();
+        $totalAdmin = Auth::user()->isAdmin() ? User::where('role', 'admin')->count() : 0;
+        $totalUser = Auth::user()->isAdmin() ? User::where('role', 'user')->count() : 0;
         $totalChair = Chair::count();
         $totalOrder = Order::count();
         $totalOrderToday = Order::whereDate('created_at', now()->today())->count();

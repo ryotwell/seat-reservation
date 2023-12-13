@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
             'name' => 'Ryo Otwell',
             'email' => 'ytryo789@gmail.com',
             'password' => bcrypt('123'),
-            'role' => 'admin',
+            'role' => 'user',
         ]);
     }
 }

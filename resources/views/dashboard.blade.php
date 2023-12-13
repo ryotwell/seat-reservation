@@ -17,6 +17,7 @@
                 <h1>Dashboard</h1>
             </div>
             <div class="row">
+                @if (Auth::user()->isAdmin())
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="card card-statistic-1">
                         <div class="card-icon bg-primary">
@@ -47,6 +48,7 @@
                         </div>
                     </div>
                 </div>
+                @endif
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="card card-statistic-1">
                         <div class="card-icon bg-success">

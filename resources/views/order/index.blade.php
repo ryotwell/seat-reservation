@@ -20,6 +20,8 @@
                 <div class="card">
                     <div class="card-body">
                         
+                        <x-alert />
+
                         <div>
                             <table class="table table-responsive mb-4">
                                 <thead>
