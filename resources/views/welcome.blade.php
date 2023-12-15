@@ -21,8 +21,8 @@
             <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
                 <a href="{{ route('home') }}" class="mr-10 hover:text-gray-900">Home</a>
                 @guest
-                <a href="{{ route('home') }}" class="mr-10 hover:text-gray-900">Login</a>
-                <a href="{{ route('home') }}" class="mr-10 hover:text-gray-900">Register</a>
+                <a href="{{ route('login') }}" class="mr-10 hover:text-gray-900">Login</a>
+                <a href="{{ route('register') }}" class="mr-10 hover:text-gray-900">Register</a>
                 @endguest
                 @auth
                 <a href="{{ route('dashboard') }}" class="mr-10 hover:text-gray-900">Dashboard</a>
